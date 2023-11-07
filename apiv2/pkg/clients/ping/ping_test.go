@@ -6,9 +6,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/mittwald/goharbor-client/v5/apiv2/internal/api/client/ping"
-	"github.com/mittwald/goharbor-client/v5/apiv2/mocks"
-	clienttesting "github.com/mittwald/goharbor-client/v5/apiv2/pkg/testing"
+	"github.com/ethenq/goharbor-client/v5/apiv2/internal/api/client/ping"
+	"github.com/ethenq/goharbor-client/v5/apiv2/mocks"
+	clienttesting "github.com/ethenq/goharbor-client/v5/apiv2/pkg/testing"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 )
