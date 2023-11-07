@@ -36,4 +36,4 @@ Before you make your changes, check to see if an [issue already exists](https://
 When in doubt where to start when making changes to the client, please refer to the [Contribution guide](./CONTRIBUTING.md).
 
 ## Documentation
-For more specific documentation, please refer to the [godoc](https://pkg.go.dev/github.com/mittwald/goharbor-client/v5) of this library (which also contains [usage examples](https://pkg.go.dev/github.com/mittwald/goharbor-client/v5#pkg-examples)).
+ For more specific documentation, please refer to the [godoc](https://pkg.go.dev/github.com/mittwald/goharbor-client/v5) of this library (which also contains [usage examples](https://pkg.go.dev/github.com/mittwald/goharbor-client/v5#pkg-examples)).
