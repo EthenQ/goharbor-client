@@ -143,8 +143,19 @@ func NewRESTClientForHost(u, username, password string, opts *config.Options) (*
 	if err != nil {
 		return nil, err
 	}
-
-	v2SwaggerClient := v2client.New(runtimeclient.New(harborURL.Host, harborURL.Path, []string{harborURL.Scheme}), strfmt.Default)
+	var v2SwaggerClient *v2client.Harbor
+	//v2SwaggerClient := v2client.New(runtimeclient.New(harborURL.Host, harborURL.Path, []string{harborURL.Scheme}), strfmt.Default)
+	if harborURL.Scheme == "https" {
+		var optsTLS runtimeclient.TLSClientOptions
+		optsTLS.InsecureSkipVerify = true
+		client, err := runtimeclient.TLSClient(optsTLS)
+		if err != nil {
+			return nil, err
+		}
+		v2SwaggerClient = v2client.New(runtimeclient.NewWithClient(harborURL.Host, harborURL.Path, []string{harborURL.Scheme}, client), strfmt.Default)
+	} else {
+		v2SwaggerClient = v2client.New(runtimeclient.New(harborURL.Host, harborURL.Path, []string{harborURL.Scheme}), strfmt.Default)
+	}
 	authInfo := runtimeclient.BasicAuth(username, password)
 
 	return NewRESTClient(v2SwaggerClient, opts, authInfo), nil
